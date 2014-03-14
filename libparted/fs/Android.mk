@@ -41,10 +41,9 @@ LOCAL_SRC_FILES := \
 LOCAL_CFLAGS :=
 LOCAL_MODULE := libparted-fs
 LOCAL_MODULE_TAGS := optional
-LOCAL_SHARED_LIBRARIES := libext2_uuid
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../include \
 	$(LOCAL_PATH)/../../lib \
-	external/e2fsprogs/lib \
+	$(LOCAL_PATH)/../../
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -98,7 +97,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../include \
 	$(LOCAL_PATH)/../../lib \
 	$(LOCAL_PATH)/../labels \
-	external/e2fsprogs/lib \
-
+	$(LOCAL_PATH)/../../ \    
+	
 include $(BUILD_STATIC_LIBRARY)
 

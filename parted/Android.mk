@@ -12,8 +12,7 @@ LOCAL_SRC_FILES := \
 LOCAL_CFLAGS :=
 LOCAL_MODULE := parted
 LOCAL_MODULE_TAGS := optional
-LOCAL_STATIC_LIBRARIES := libparted libgnulib libparted-fs
+LOCAL_STATIC_LIBRARIES := libparted libgnulib libparted-fs libuuid
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../include $(LOCAL_PATH)/../lib
-LOCAL_SHARED_LIBRARIES := libext2_uuid
 
 include $(BUILD_EXECUTABLE)

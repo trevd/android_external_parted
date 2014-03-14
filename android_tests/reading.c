@@ -3,8 +3,9 @@
 int main (int argc, char* argv[])
 {
         char* size;
-        char* transport[13] = {"unknown", "scsi", "ide", "dac960", "cpqarray","file", "ataraid", "i2o", "ubd", "dasd", "viodasd","sx8", "dm"};
         PedDevice* device;
+        char* transport[13] = {"unknown", "scsi", "ide", "dac960", "cpqarray","file", "ataraid", "i2o", "ubd", "dasd", "viodasd","sx8", "dm"};
+   
         if (argc != 2) { 
                 printf ("wrong number of arguments\n");
                 goto error;
@@ -21,7 +22,8 @@ int main (int argc, char* argv[])
         printf("Type: %d\n", device->type);
         printf("Size: %s\n", size);
         printf("Sector size (logical/physical): %lldB/%lldB\n",device->sector_size,device->phys_sector_size);
-        //ped_free (size);
+        free (size);
+        free (device);
         return 0;
 error:
         return 1;
