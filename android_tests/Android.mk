@@ -23,9 +23,6 @@ LOCAL_SRC_FILES := label.c
 LOCAL_MODULE := parted_test_labels
 include $(BUILD_EXECUTABLE)
 
-
-
-
 ##### Test Reading ####
 
 include $(CLEAR_VARS)
@@ -35,10 +32,7 @@ LOCAL_SRC_FILES := reading.c
 LOCAL_MODULE := parted_test_reading
 include $(BUILD_EXECUTABLE)
 
-
-
 ##### Test probe ####
-
 
 include $(CLEAR_VARS)
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../include $(LOCAL_PATH)/../lib $(LOCAL_PATH)/../uuid
@@ -47,4 +41,12 @@ LOCAL_SRC_FILES := probe.c
 LOCAL_MODULE := parted_test_probe
 include $(BUILD_EXECUTABLE)
 
+##### ped_unit examples ####
+
+include $(CLEAR_VARS)
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../include $(LOCAL_PATH)/../lib $(LOCAL_PATH)/../uuid
+LOCAL_STATIC_LIBRARIES += libparted libgnulib libparted-fs libuuid
+LOCAL_SRC_FILES := ped_unit_examples.c
+LOCAL_MODULE := parted_ped_unit_examples
+include $(BUILD_EXECUTABLE)
 

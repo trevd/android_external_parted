@@ -37,10 +37,10 @@ int main (int argc, char* argv[])
     
     int return_code = EXIT_FAILURE;
     
-	if (argc != 2){
-	    printf("wrong number of arguments\n");
-	    return EXIT_FAILURE;
-	}
+        if (argc != 2){
+            printf("wrong number of arguments\n");
+            return EXIT_FAILURE;
+        }
     
     
     device = ped_device_get (argv[1]);
@@ -61,8 +61,10 @@ int main (int argc, char* argv[])
     
     do
     {
-        if ((part = ped_disk_next_partition (disk, part)) && (part->num > -1) )
+        part = ped_disk_next_partition (disk, part);
+        if ((part != NULL) && (part->num > -1)){
                 printf("%d %s %s\n",part->num,ped_partition_type_get_name(part->type),ped_unit_format (device,part->geom.length));
+        }
         
     }while( part );
     
