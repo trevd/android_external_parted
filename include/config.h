@@ -36,7 +36,7 @@
 #endif
 
 #include <stdio.h>
-#include <wchar.h>
+#include <malloc.h>
 
 #define _GL_UNUSED      __attribute__((__unused__))
 #define _GL_ATTRIBUTE_CONST __attribute__((__const__))
@@ -52,29 +52,6 @@
 
 #define PENDING_OUTPUT_N_BYTES fp->_p - fp->_bf._base
 
-/* Missing from BIONIC, unfortunately */
-static inline int mbtowc(wchar_t *pwc, const char *s, size_t n)
-{
-    printf("mbtowc STUB!\n");
-    return -1;
-}
-
-static inline int wctomb(char *s, wchar_t wc)
-{
-    printf("wctomb STUB!\n");
-    return -1;
-}
-
-#undef stpcpy
-#define stpcpy(a, b) my_stpcpy (a, b)
-static inline char *
-my_stpcpy (char *dest, const char *src)
-{
-    char *d = dest;
-    const char *s = src;
-    do *d++ = *s; while (*s++ != '\0');
-    return d - 1;
-}
 
 static inline int posix_memalign(void **memptr, size_t alignment, size_t size)
 {
